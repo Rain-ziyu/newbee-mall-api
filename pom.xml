@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-严肃声明：
-开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
-本软件已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
-可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
-Copyright (c) 2019-2021 十三 all rights reserved.
-版权所有，侵权必究！
--->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -14,8 +6,8 @@ Copyright (c) 2019-2021 十三 all rights reserved.
     <groupId>ltd.newbee.mall</groupId>
     <artifactId>newbee-mall-api</artifactId>
     <version>3.0.0-SNAPSHOT</version>
-    <name>newbee-mall-api</name>
-    <description>NEWBEE商城 API</description>
+    <name>mall-api</name>
+    <description>商城 API</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -57,6 +49,12 @@ Copyright (c) 2019-2021 十三 all rights reserved.
             <artifactId>springfox-swagger2</artifactId>
             <version>2.8.0</version>
         </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>

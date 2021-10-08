@@ -8,8 +8,8 @@ Copyright (c) 2019-2021 十三 all rights reserved.
 版权所有，侵权必究！
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeAdminUserTokenMapper">
-  <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.AdminUserToken">
+<mapper namespace="wwl.hy.mall.dao.NewBeeAdminUserTokenMapper">
+  <resultMap id="BaseResultMap" type="wwl.hy.mall.entity.AdminUserToken">
     <id column="admin_user_id" jdbcType="BIGINT" property="adminUserId" />
     <result column="token" jdbcType="VARCHAR" property="token" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -34,13 +34,13 @@ Copyright (c) 2019-2021 十三 all rights reserved.
     delete from tb_newbee_mall_admin_user_token
     where admin_user_id = #{adminUserId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="ltd.newbee.mall.entity.AdminUserToken">
+  <insert id="insert" parameterType="wwl.hy.mall.entity.AdminUserToken">
     insert into tb_newbee_mall_admin_user_token (admin_user_id, token, update_time, 
       expire_time)
     values (#{adminUserId,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{expireTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.AdminUserToken">
+  <insert id="insertSelective" parameterType="wwl.hy.mall.entity.AdminUserToken">
     insert into tb_newbee_mall_admin_user_token
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="adminUserId != null">
@@ -71,7 +71,7 @@ Copyright (c) 2019-2021 十三 all rights reserved.
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.AdminUserToken">
+  <update id="updateByPrimaryKeySelective" parameterType="wwl.hy.mall.entity.AdminUserToken">
     update tb_newbee_mall_admin_user_token
     <set>
       <if test="token != null">
@@ -86,7 +86,7 @@ Copyright (c) 2019-2021 十三 all rights reserved.
     </set>
     where admin_user_id = #{adminUserId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.AdminUserToken">
+  <update id="updateByPrimaryKey" parameterType="wwl.hy.mall.entity.AdminUserToken">
     update tb_newbee_mall_admin_user_token
     set token = #{token,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
