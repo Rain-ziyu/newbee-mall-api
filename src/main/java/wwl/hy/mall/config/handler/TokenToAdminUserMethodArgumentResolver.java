@@ -22,7 +22,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-//通过该类可以将controller里的@TokenToAdminUser AdminUserToken adminUser参数通过srvice方法将数据库里的token对应的用户查询出来。
+//通过该类可以将controller里的@TokenToAdminUser AdminUserToken adminUser参数通过dao包里的对应的mapper方法将数据库里的token对应的用户查询出来。
 @Component
 public class TokenToAdminUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
 

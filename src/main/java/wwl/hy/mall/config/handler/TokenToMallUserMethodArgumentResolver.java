@@ -26,7 +26,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-//通过该类可以将controller里的@TokenToMallUser MallUser loginMallUser参数通过srvice方法将数据库里的token对应的用户查询出来。
+//通过该类可以将controller里的@TokenToMallUser MallUser loginMallUser参数通过dao包里的对应的mapper方法将数据库里的token对应的用户查询出来。
 //详细原理见：https://blog.csdn.net/songzehao/article/details/99641594
 @Component
 public class TokenToMallUserMethodArgumentResolver implements HandlerMethodArgumentResolver {

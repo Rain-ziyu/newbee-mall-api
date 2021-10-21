@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wwl.hy.mall.dao.UserHisMapper">
+
+    <resultMap id="BaseResultMap" type="wwl.hy.mall.entity.UserHistory">
+        <id column="mall_user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="user_history" jdbcType="VARCHAR" property="history" />
+    </resultMap>
+    <insert id="insertUserHis" parameterType="wwl.hy.mall.entity.UserHistory">
+        insert into tb_hy_mall_user_history (mall_user_id,user_history)
+        values(#{userId},#{history})
+    </insert>
+
+    <select id="selectHis" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from tb_hy_mall_user_history where mall_user_id = #{userid,jdbcType=BIGINT}
+    </select>
+
+</mapper>
