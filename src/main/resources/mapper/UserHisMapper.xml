@@ -12,7 +12,7 @@
     </insert>
 
     <select id="selectHis" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select * from tb_hy_mall_user_history where mall_user_id = #{userid,jdbcType=BIGINT}
+        select * from tb_hy_mall_user_history where mall_user_id = #{userid,jdbcType=BIGINT} group by user_history
     </select>
 
 </mapper>

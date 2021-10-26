@@ -12,6 +12,7 @@ import io.swagger.annotations.*;
 import wwl.hy.mall.api.mall.param.MallUserLoginParam;
 import wwl.hy.mall.api.mall.param.MallUserRegisterParam;
 import wwl.hy.mall.api.mall.param.MallUserUpdateParam;
+import wwl.hy.mall.api.mall.param.UserHistoryParam;
 import wwl.hy.mall.api.mall.vo.UserHisInfoVO;
 import wwl.hy.mall.common.Constants;
 import wwl.hy.mall.common.ServiceResultEnum;
@@ -21,7 +22,6 @@ import wwl.hy.mall.entity.MallUser;
 import wwl.hy.mall.entity.UserHistory;
 import wwl.hy.mall.service.NewBeeMallUserService;
 import wwl.hy.mall.service.UserHistoryService;
-import wwl.hy.mall.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
@@ -38,13 +38,13 @@ import java.util.List;
 @RestController
 @Api(value = "v1", tags = "2.用户操作相关接口")
 @RequestMapping("/api/v1")
-public class NewBeeMallPersonalAPI {
+public class PersonalAPI {
 
     @Resource
     private NewBeeMallUserService newBeeMallUserService;
     @Resource
     private UserHistoryService userHistoryService;
-    private static final Logger logger = LoggerFactory.getLogger(NewBeeMallPersonalAPI.class);
+    private static final Logger logger = LoggerFactory.getLogger(PersonalAPI.class);
 
     @PostMapping("/user/login")
     @ApiOperation(value = "登录接口", notes = "返回token")
@@ -132,13 +132,14 @@ public class NewBeeMallPersonalAPI {
         userHisInfoVO.setUserHistories(userHistory);
         return ResultGenerator.genSuccessResult(userHisInfoVO);
     }
-    @GetMapping("/user/insertHisInfo")
+    @PutMapping("/user/insertHisInfo")
     @ApiOperation(value = "为用户增加用户历史搜索信息", notes = "")
-    public Result insertHisInfo(@TokenToMallUser MallUser loginMallUser,String history) {
+    public Result insertHisInfo(@RequestBody @ApiParam("用户搜索记录信息")UserHistoryParam userHistoryParam, @TokenToMallUser MallUser loginMallUser) {
         UserHistory userHistory = new UserHistory();
-        userHistory.setHistory(history);
+        userHistory.setHistory(userHistoryParam.getHistory());
         userHistory.setUserId(loginMallUser.getUserId());
         userHistoryService.insertUserHistory(userHistory);
         return ResultGenerator.genSuccessResult();
     }
+
 }
